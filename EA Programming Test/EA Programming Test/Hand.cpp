@@ -565,6 +565,7 @@ bool Hand::IsMatchingSuit()
 
 void Hand::FillPairMap()
 {
+    std::map<SUIT, int> suitMap;
     // Count aces in the hand
     m_iAceCounter = 0;
     // Check if Hand has a KING
@@ -582,7 +583,13 @@ void Hand::FillPairMap()
         }
         m_mPairMap[m_vHand.at(i).GetCardValue()] += 1;
         m_mRankMap[m_vHand.at(i).GetRank()] += 1;
+        suitMap[m_vHand.at(i).GetSuit()] += 1;
         // Add the values of the card as we iterate over them
         m_iValue += m_vHand.at(i).GetCardValue();
     }
+    if (suitMap.size() == 1)
+    {
+        m_bAllSuitsMatch = true;
+    }
+
 }

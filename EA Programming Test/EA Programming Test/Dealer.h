@@ -212,6 +212,13 @@ public:
     */
     void PrintEndGameStats();
 
+    /*  Name: PrintTable()
+        Param: void
+        Return: void
+        Info: Print the cards of each player, with name and Category as well
+    */
+    void PrintTable();
+
     /*  Name: NewGame()
         Param: void
         Return: void
@@ -292,7 +299,11 @@ public:
 
     // Override
     void FindHighValue(std::list<Player*> *playerList);
-
+    /*  Name: Compare(list<Player*>)
+        Param: void
+        Return: void
+        Info: Compare the cards of each player individually
+    */
     void Compare(std::list<Player*> *playerList);
 };
 

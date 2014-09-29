@@ -252,16 +252,7 @@ void Dealer::PlayGame()
         m_vPlayers.at(i)->EvaluateCategory();
     }
 
-    // Print the hands of the Players
-    for (auto p = m_vPlayers.begin(); p != m_vPlayers.end(); ++p)
-    {
-        std::cout << "-------------------------------" << std::endl;
-        std::cout << (*p)->GetName() << " hand is a "; 
-        (*p)->PrintCategory();
-        std::cout << std::endl;
-        (*p)->PrintHand();
-        std::cout << "\n-------------------------------" << std::endl;
-    }
+    PrintTable();
 
     // After Cards are Dealt, Dealer will then compare hands of each player, start at 0
     CompareCategories();
@@ -345,6 +336,20 @@ void Dealer::PrintEndGameStats()
         std::cout << "Wins: " << (*it)->GetWins() << std::endl;
         std::cout << "Loss: " << (*it)->GetLoss() << std::endl;
         std::cout << "Ties: " << (*it)->GetTies() << std::endl;
+    }
+}
+
+void Dealer::PrintTable()
+{
+    // Print the hands of the Players
+    for (auto p = m_vPlayers.begin(); p != m_vPlayers.end(); ++p)
+    {
+        std::cout << "-------------------------------" << std::endl;
+        std::cout << (*p)->GetName() << " hand is a ";
+        (*p)->PrintCategory();
+        std::cout << std::endl;
+        (*p)->PrintHand();
+        std::cout << "\n-------------------------------" << std::endl;
     }
 }
 

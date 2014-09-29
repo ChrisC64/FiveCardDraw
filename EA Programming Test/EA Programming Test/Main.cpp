@@ -34,6 +34,9 @@ int main()
         myDealer.NewGame();
     } while (PlayAgain());
     myDealer.PrintEndGameStats();
+    std::cout << "press any key to end...";
+    std::getline(std::cin, playerName);
+
     return 0;
 }
 
